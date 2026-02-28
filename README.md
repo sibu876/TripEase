@@ -1,42 +1,12 @@
 🚖 TripEase – Cab Booking Backend System
 
-TripEase is a RESTful backend application built using Spring Boot and MySQL that allows customers to book available cabs based on their destination. The system automatically assigns drivers, manages cab availability, stores booking records, and sends email confirmations upon successful booking.
+TripEase is a RESTful backend application built using Spring Boot and MySQL that allows customers to book cabs based on their destination. The system automatically assigns drivers, manages cab availability, stores booking records, and sends email confirmations upon successful booking.
 
 This project demonstrates clean architecture, layered design, DTO usage, exception handling, and SMTP email integration.
 
-📌 Table of Contents
-
-Overview
-
-Features
-
-Tech Stack
-
-Architecture
-
-Project Structure
-
-Database Design
-
-API Endpoints
-
-Email Integration
-
-Installation & Setup
-
-Environment Variables
-
-How It Works
-
-Future Improvements
-
-Author
-
 📖 Overview
 
-TripEase is a backend cab booking system that simulates real-world ride booking functionality.
-
-It manages:
+TripEase simulates real-world ride-booking functionality by managing:
 
 Customers
 
@@ -58,23 +28,23 @@ Customers receive booking confirmation emails
 
 ✅ Features
 
-✔ Customer registration and management
+Customer registration and management
 
-✔ Cab booking based on destination
+Cab booking based on destination
 
-✔ Automatic driver assignment
+Automatic driver assignment
 
-✔ Cab availability tracking
+Cab availability tracking
 
-✔ Booking persistence using JPA
+Booking persistence using JPA
 
-✔ Email confirmation using SMTP
+Email confirmation using SMTP
 
-✔ Custom exception handling
+Custom exception handling
 
-✔ Layered architecture implementation
+Layered architecture implementation
 
-✔ DTO & Transformer pattern
+DTO & Transformer pattern
 
 🛠 Tech Stack
 Technology	Purpose
@@ -87,7 +57,7 @@ JavaMailSender	Email Service
 Maven	Dependency Management
 🏗 Architecture
 
-TripEase follows a layered architecture:
+Layered Design:
 
 Controller Layer
         ↓
@@ -96,7 +66,8 @@ Service Layer
 Repository Layer
         ↓
 Database (MySQL)
-Design Principles Used:
+
+Design Principles:
 
 Dependency Injection
 
@@ -120,7 +91,8 @@ TripEase
 │── application.properties
 │── pom.xml
 🗄 Database Design
-Main Entities:
+
+Entities:
 
 Customer
 
@@ -140,27 +112,22 @@ One Cab → One Driver
 
 One Booking → Linked to Customer, Driver, and Cab
 
-🌐 API Endpoints (Example)
-📍 Book a Cab
-POST /booking/book/{customerId}
-📍 Add Customer
-POST /customer/add
-📍 Add Driver
-POST /driver/add
-📍 Add Cab
-POST /cab/add
+🌐 API Endpoints (Examples)
+Endpoint	Method	Description
+/booking/book/{customerId}	POST	Book a cab for a customer
+/customer/add	POST	Add a new customer
+/driver/add	POST	Add a new driver
+/cab/add	POST	Add a new cab
 
-(Modify based on your actual controller mappings if different.)
+Modify based on your actual controller mappings.
 
 📧 Email Integration
 
-After a successful booking:
+Confirmation emails are sent after a successful booking
 
-A confirmation email is sent to the customer.
+Configured using Gmail SMTP
 
-Configured using Gmail SMTP.
-
-Implemented using Spring’s JavaMailSender.
+Implemented using Spring’s JavaMailSender
 
 ⚙ Installation & Setup
 1️⃣ Clone Repository
@@ -177,10 +144,8 @@ DB_PASSWORD=your_mysql_password
 MAIL_USERNAME=your_email@gmail.com
 MAIL_PASSWORD=your_gmail_app_password
 
-⚠ Never push .env to GitHub.
-Add this to .gitignore:
+⚠ Never push .env to GitHub. Add it to .gitignore.
 
-.env
 4️⃣ Update application.properties
 spring.datasource.url=jdbc:mysql://localhost:3306/tripease
 spring.datasource.username=${DB_USERNAME}
@@ -206,11 +171,11 @@ Application runs at:
 http://localhost:8080
 🔄 How It Works
 
-Customer sends booking request.
+Customer sends a booking request
 
-System verifies customer exists.
+System verifies customer exists
 
-System checks for available cab.
+System checks for available cab
 
 If cab is available:
 
@@ -220,9 +185,9 @@ Booking is saved
 
 Cab availability is updated
 
-Confirmation email is sent to the customer.
+Confirmation email is sent to customer
 
-Booking response is returned.
+Booking response is returned
 
 🚀 Future Improvements
 
